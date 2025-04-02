@@ -1,0 +1,15 @@
+# Escreva um programa que calcule a velocidade média de um veículo com base na distância percorrida e no tempo em que uma viagem foi realizada.
+
+# Programa velocidade média
+
+# Entrada de dados
+distância = float(input('informar a distância percorrida (Km):'))
+tempo = float(input('informar o tempo da viagem (horas):'))
+
+# Processamento de dados
+vel_med = distância/tempo
+consumo = distância/12
+
+# Saída de dados
+print(f' A velocidade média percorrida é de:{vel_med} km e o consumo foi de: {consumo:.1f} por km/L')
+

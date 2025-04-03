@@ -1,0 +1,14 @@
+# O Departamento Estadual de Metereologia solicitou o desenvolvimento de um programa que leia um conjunto indeterminado de temperaturas, ao final informe a menor e a maior temperatura, bem como a média delas.
+
+num= []
+
+for i in range(5):
+    num.append(int(input('Informe a temperatura:')))
+    
+maior = max(num)
+menor = min(num)
+media = sum(num)/len(num)
+
+print(f"exiba a maior temperatura: {maior}ºC")
+print(f"exiba a menor temperatura: {menor}ºC")
+print(f"exiba a média da temperatura: {media}ºC")

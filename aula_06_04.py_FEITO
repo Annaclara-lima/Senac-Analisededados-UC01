@@ -1,0 +1,20 @@
+# Crie um programa que:
+# 1- Peça ao usuário para digitar dez números inteiros e os armazene em uma lista.
+# 2- Exiba a lista completa.
+# 3- Exiba o maior e o menor número da lista.
+# 4- Exiba a soma e a média de todos os números
+
+num= []
+
+for i in range(10):
+    num.append(int(input('Informe um valor inteiro:')))
+
+maior = max(num)
+menor = min(num)
+soma = sum(num)
+media = sum(num)/len(num)
+
+print(f"exiba o maior número da lista: {maior}")
+print(f"exiba o menor número da lista: {menor}")
+print(f"exiba a soma da lista: {soma}")
+print(f"exiba a média da lista: {media}")

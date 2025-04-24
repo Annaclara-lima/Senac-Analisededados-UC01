@@ -1,0 +1,17 @@
+INSERT INTO fornecedores (cnpj,nome,endereco) VALUES
+('1001','Brinquedos e CIA','Rua das Estrelas, 1500'),
+('1002','Games e Diversao','Av dos Jogos, 1000'),
+('1003','Estrela Diversões',' Rua México, 300');
+
+
+
+INSERT INTO equipamentos (codigo,nome,descricao,valor) VALUES
+(101,'Pula Pula','Cama elástica com Proteção Lateral',200),
+(102,'Futebol de Sabão','Comporta até 6 jogadores',500),
+(103,'Fliperama 1902','Máquina até dois jogadores',600),
+(104,'Máquina de fumaça','Área de atuação 20m²',1000);
+
+
+
+INSERT INTO pedidos (numero,data,STATUS,cpf,cnpj,codigo) VALUES
+(1010,'2025-04-15','analise','021','1001',1010);

@@ -1,0 +1,79 @@
+CREATE TABLE Participante(
+    nome VARCHAR(30) NOT NULL,
+    email VARCHAR (50) NOT NULL,
+    telefone VARCHAR (15) NOT NULL,
+    cpf_rg VARCHAR (14) NOT NULL,
+    instituicao VARCHAR (40) NOT NULL,
+    tipo_participante VARCHAR (30) NOT NULL,
+    PRIMARY KEY (cpf_rg)
+    );
+
+
+
+CREATE TABLE inscricoes(
+    nome_evento VARCHAR(30) NOT NULL,
+    hora_hora VARCHAR (50) NOT NULL,
+    status VARCHAR (15) NOT NULL,
+    PRIMARY KEY (nome_evento)
+    );
+
+
+CREATE TABLE eventos(
+    nome_evento VARCHAR(30) NOT NULL,
+    data_hora VARCHAR (50) NOT NULL,
+    nome_local VARCHAR (30) NOT NULL,
+    PRIMARY KEY (nome_evento),
+    FOREIGN KEY (nome_local) REFERENCES locais (nome_local)
+    );
+
+
+CREATE TABLE palestrante(
+    nome VARCHAR(30) NOT NULL,
+    telefone VARCHAR (10) NOT NULL,
+    mini_curriculo VARCHAR (400) NOT NULL,
+    cpf VARCHAR (14) NOT NULL,
+    PRIMARY KEY (cpf)
+    );
+
+
+CREATE TABLE locais(
+    nome_local VARCHAR(30) NOT NULL,
+    recursos_disponiveis VARCHAR (20) NOT NULL,
+    capacidade VARCHAR (20) NOT NULL,
+    PRIMARY KEY (nome_local)
+    );
+
+
+CREATE TABLE emissão_de_certificados(
+    cpf VARCHAR(20) NOT NULL,
+    cpf_rg VARCHAR (20) NOT NULL,
+    data_hora VARCHAR (20) NOT NULL,
+    nome_evento VARCHAR (50) NOT NULL,
+    nome_local VARCHAR (50) NOT NULL,
+    PRIMARY KEY (nome_local)
+    );
+
+CREATE TABLE emissão_certificados(
+    data_hora VARCHAR (10) NOT NULL,
+    cpf VARCHAR (14) NOT NULL,
+    cpf_rg VARCHAR (14) NOT NULL,
+    nome_evento VARCHAR (50) NOT NULL,
+    nome_local VARCHAR (50) NOT NULL,
+    FOREIGN KEY (nome_local) REFERENCES locais (nome_local),
+    FOREIGN KEY (cpf) REFERENCES palestrante (cpf),
+    FOREIGN KEY (cpf_rg) REFERENCES participante (cpf_rg),
+    FOREIGN key (nome_evento) REFERENCES eventos (nome_evento)
+    );
+
+
+
+INSERT INTO locais (nome_local,recursos_disponiveis,capacidade) VALUES
+('USP','Tv','300 pessoas')
+
+
+INSERT INTO palestrante (nome,telefone,mini_curriculo,cpf) VALUES
+('Anna Clara','982421716','Profissional com sólida experiência na área financeira, atuando há mais de 8 anos com controle de contas a pagar e receber, conciliação bancária, emissão de relatórios gerenciais e apoio à contabilidade','10912026723');
+	
+
+INSERT INTO emissao_certificados (cpf_rg,cpf,data_hora,nome_evento,nome_local) VALUES
+('258165166','10912026723','24/04/2025 19:30hrs','USP','Sao Paulo');

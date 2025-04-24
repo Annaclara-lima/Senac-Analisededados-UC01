@@ -1,0 +1,38 @@
+Para criar o banco de dados:
+
+create database loja__online;
+
+
+CREATE TABLE Alunos(
+    matricula integer NOT NULL,
+    nome VARCHAR(30) NOT NULL,
+    endereco VARCHAR (50) NOT NULL,
+    telefone VARCHAR (15) NOT NULL,
+    PRIMARY KEY (matricula)
+    );
+
+
+
+
+CREATE TABLE livros(
+    isbn integer NOT NULL,
+    titulo VARCHAR(30) NOT NULL,
+    autor VARCHAR (50) NOT NULL,
+    editora VARCHAR (50) NOT NULL,
+    PRIMARY KEY (isbn)
+    );
+
+
+CREATE TABLE emprestimo(
+    id_emprestimo INTEGER AUTO_INCREMENT,
+    numero integer NOT NULL,
+    data_do_emprestimo VARCHAR(10) NOT NULL,
+    data_devolucao VARCHAR (10) NOT NULL,
+    isbn integer NOT NULL,
+    matricula integer NOT NULL,
+    siape integer NOT NULL,
+    PRIMARY KEY (id_emprestimo),
+    FOREIGN KEY (isbn) REFERENCES livros (isbn),
+    FOREIGN KEY (matricula) REFERENCES alunos (matricula),
+    FOREIGN KEY (siape) REFERENCES funcionario (siape)
+    );
